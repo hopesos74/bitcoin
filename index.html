@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script type="module" src="./access.js"></script>
+       
+</head>
+
+<body>
+   
+
+   
+   
+   
+    <script>
+    
+        console.log('result: ' + jwtToken);
+
+        $.ajax({
+            method: "GET",
+            url: "https://api.upbit.com/v1/accounts",
+
+            // data: { access_key: "pIFImTNuXkXVsHRYo7df2xptFA8YKiapZ9ONLTdG", nonce: uuidv4()},
+
+            // data: { access_key: "pIFImTNuXkXVsHRYo7df2xptFA8YKiapZ9ONLTdG", nonce: uuidv4(), query_hash: "queryHash", query_hash_alg: 'SHA512' },
+            //headers: {Authorization: "Bearer 6m9zk7-fMGrDLQpkpM67vRAV_YQIyzqjMqR-WQorDNMAAAF5Wgqd3Q"}
+            // headers: { Authorization: "KakaoAK eaba352137de06ddce13c272d9ce9756" }
+
+            headers: { Authorization: jwtToken }
+        })
+            .done(function (msg) {
+                //today_open = msg[0].opening_price;
+                //yesterday_high = msg[1].high_price;
+                //yesterday_low = msg[1].low_price;
+                //target = today_open + (yesterday_high - yesterday_low) * 0.5; 
+                //current_price = msg[0].trade_price;
+
+                console.log(msg);
+                //$( "p" ).append("현재가:"+ current_price + ", 목표가:"+ target+ "<br><br>");
+                //$( "p" ).append("시초가:"+ today_open + "<br><br>");
+                //$( "p" ).append("고가:"+ msg[0].high_price + ", 저가:"+ msg[0].low_price + "<br><br>");
+
+            });
+
+
+
+
+    </script>
+    <h1>test</h1>
+    <p></p>
+
+</body>
+
+</html>
